@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Cumpleaños Mi Amor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            padding: 1rem;
+            position: relative;
+            z-index: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('fondoCentral.jpeg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .sticker-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdqZTV0dm94dWJyNjlmNHJtOWx5emFrZThzcTlod3RnYmYxc2FuMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/8tcHYjjmILUymgzKXN/giphy.gif');
+            background-repeat: repeat;
+            background-position: center;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 200;
+            opacity: 1;
+        }
+
+        h1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 2.8rem;
+            color: #c2185b;
+            text-align: center;
+            margin: 0;
+            /* elimina márgenes para evitar espacio extra */
+            padding: 1rem 0;
+            /* agrega algo de espacio arriba y abajo */
+            background: rgba(255, 255, 255, 0.7);
+            /* fondo semitransparente para que sea legible */
+            text-shadow: 3px 3px 10px #fff;
+            z-index: 1000;
+            animation: heartbeat 2.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .floating-text,
+        .heart {
+            position: absolute;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff4081;
+            opacity: 0.7;
+            animation: floatTextDown linear forwards;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .heart {
+            font-size: 1.5rem;
+            color: #e91e63;
+        }
+
+        @keyframes floatTextDown {
+            from {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(350vh);
+                opacity: 0.5;
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 3rem 10rem;
+            /* vertical 3rem, horizontal 1rem */
+            max-width: 95%;
+            margin: auto;
+            padding-bottom: 6rem;
+            margin-top: 8rem;
+        }
+
+        .year-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.6s ease, box-shadow 0.4s ease;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            filter: drop-shadow(0 0 10px #ffc1e3);
+            padding: 0;
+        }
+
+        .year-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            display: block;
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .year-card span {
+            display: block;
+            padding: 0.6rem;
+            font-weight: bold;
+            color: #d81b60;
+            font-size: 1.1rem;
+            z-index: 2;
+            position: relative;
+            background: white;
+        }
+
+        .year-card .reveal-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background: rgba(255, 240, 250, 0.9);
+            color: #c2185b;
+            font-weight: bold;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: all 0.5s ease;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 1rem 1rem;
+            box-sizing: border-box;
+            animation-delay: 0.2s;
+        }
+
+        .year-card:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 10px 25px rgba(255, 105, 135, 0.6);
+            filter: drop-shadow(0 0 20px #ffd9ec);
+        }
+
+        .year-card:hover img {
+            transform: translateY(-100%);
+        }
+
+        .year-card:hover .reveal-text {
+            transform: translateY(0%);
+            opacity: 1;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                transform: translateY(20px) scale(0.95);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎉 22 Años Desde Que Nació Mi Niña Bonita 💖
+        <div id="controlesMusica" style="font-size: 1.5rem; margin-top: 0.5rem;">
+            <span id="nombreCancion" style="margin-right: 1rem;">Cargando canción...</span>
+            <button id="playPauseBtn" onclick="togglePlayPause()"
+                style="padding: 0.3rem 0.6rem; border: none; border-radius: 0.5rem; background-color: lightslategray; color: white; cursor: pointer;">
+                <svg id="iconoPlayPause" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                    viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" /> <!-- Icono de "play" -->
+                </svg>
+            </button>
+        </div>
+    </h1>
+
+    <div class="sticker-bg"></div>
+
+    <!-- Floating texts lluvia -->
+    <script>
+        const frases = ["Te Amo ❤️", "Eres Mi Vida ❤️", "Feliz Cumpleaños ❤️", "Mi Princesa ❤️", "Eres La Mejor ❤️",
+            "Eres Increible ❤️", "Mi Niña Bonita ❤️", "Corazon ❤️", "Mi Cielo ❤️", "22 Años ❤️"
+        ];
+
+        function createFloatingElement(text, className) {
+            const el = document.createElement('div');
+            el.className = className;
+            el.innerText = text;
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '-10vh'; // empieza fuera de pantalla arriba
+            const duration = 10 + Math.random() * 15; // animación lenta
+            el.style.animationDuration = duration + 's';
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), duration * 1000);
+        }
+
+        setInterval(() => {
+            const textoRandom = frases[Math.floor(Math.random() * frases.length)];
+            createFloatingElement(textoRandom, 'floating-text');
+            createFloatingElement('❤️', 'heart');
+            createFloatingElement('💕', 'heart');
+        }, 1000);
+    </script>
+
+    <!-- Imagenes por año -->
+    <div class="grid">
+        <a href="anio1.html" class="year-card"><img src="anio1.jpg">
+            <div class="reveal-text">Tu Primer Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                08/Noviembre/2021
+                <br><br>
+                Primer Sueter Que Te Regale 💖
+            </div><span>12/Junio/2004 <br> 1 Año 👑</span>
+        </a>
+
+        <a href="anio2.html" class="year-card"><img src="anio2.jpg">
+            <div class="reveal-text">Tu Segundo Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                31/Marzo/2025
+                <br><br>
+                Nuestra Mejor Foto 💖
+            </div><span>12/Junio/2005 <br> 2 Años 👑</span>
+        </a>
+
+        <a href="anio3.html" class="year-card"><img src="anio3.jpg">
+            <div class="reveal-text">Tu Tercer Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                Algun Dia De 2006
+                <br><br>
+                Tu Tan Bonita De 3 Años 💖
+            </div><span>12/Junio/2006 <br> 3 Años 👑</span>
+        </a>
+
+        <a href="anio4.html" class="year-card"><img src="anio4.jpg">
+            <div class="reveal-text">Tu Cuarto Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                28/Octubre/2021
+                <br><br>
+                Cumpli 21 Años 💖
+            </div><span>12/Junio/2007 <br> 4 Años 👑</span>
+        </a>
+
+        <a href="anio5.html" class="year-card"><img src="anio5.jpg">
+            <div class="reveal-text">Tu Quinto Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                02/Diciembre/2021
+                <br><br>
+                Empezo Nuestra Semana De Prueba 💖
+            </div><span>12/Junio/2008 <br> 5 Años 👑</span>
+        </a>
+
+        <a href="anio6.html" class="year-card"><img src="anio6.jpg">
+            <div class="reveal-text">Tu Sexto Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                30/Octubre/2024
+                <br><br>
+                Cumpli 24 Años 💖
+            </div><span>12/Junio/2009 <br> 6 Años 👑</span>
+        </a>
+
+        <a href="anio7.html" class="year-card"><img src="anio7.jpg">
+            <div class="reveal-text">Tu Septimo Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                31/Mayo/2021
+                <br><br>
+                Empezamos A Hablar 💖
+            </div><span>12/Junio/2010 <br> 7 Años 👑</span>
+        </a>
+
+        <a href="anio8.html" class="year-card"><img src="anio8.jpg">
+            <<div class="reveal-text">Tu Octavo Año De Vida 💖
+                <br><br>
+                Recuerdo Bonito:
+                <br><br>
+                Algun Dia De 2011
+                <br><br>
+                Tu Tan Hermosa De 8 Años 💖
+    </div><span>12/Junio/2011 <br> 8 Años 👑</span>
+    </a>
+
+    <a href="anio9.html" class="year-card"><img src="anio9.jpg">
+        <div class="reveal-text">Tu Noveno Año De Vida 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            29/Octubre/2019
+            <br><br>
+            Cumpli 19 años 💖
+        </div><span>12/Junio/2012 <br> 9 Años 👑</span>
+    </a>
+
+    <a href="anio10.html" class="year-card"><img src="anio10.jpg">
+        <div class="reveal-text">Ay No Ya Son 10 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            05/Diciembre/2022
+            <br><br>
+            Nuestra Primer Aniversario 💖
+        </div><span>12/Junio/2013 <br> 10 Años 👑</span>
+    </a>
+
+    <a href="anio11.html" class="year-card"><img src="anio11.jpg">
+        <div class="reveal-text">Ay No Ya Son 11 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            04/Diciembre/2024
+            <br><br>
+            Tercer Aniversario 💖
+        </div><span>12/Junio/2014 <br> 11 Años 👑</span>
+    </a>
+
+    <a href="anio12.html" class="year-card"><img src="anio12.jpg">
+        <div class="reveal-text">Ay No Ya Son 12 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            13/Julio/2015
+            <br><br>
+            Tu Tan Linda de 12 Años 💖
+        </div><span>12/Junio/2015 <br> 12 Años 👑</span>
+    </a>
+
+    <a href="anio13.html" class="year-card"><img src="anio13.jpg">
+        <div class="reveal-text">Ay No Ya Son 13 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            23/Diciembre/2023
+            <br><br>
+            Segundo 24 Juntos 💖
+        </div><span>12/Junio/2016 <br> 13 Años 👑</span>
+    </a>
+
+    <a href="anio14.html" class="year-card"><img src="anio14.jpg">
+        <div class="reveal-text">Ay No Ya Son 14 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            19/Marzo/2018
+            <br><br>
+            Tu Tan Guapa de 14 Años 💖
+        </div><span>12/Junio/2017 <br> 14 Años 👑</span>
+    </a>
+
+    <a href="anio15.html" class="year-card"><img src="anio15.jpg">
+        <<div class="reveal-text">Ay No Ya Son 15 Años💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            06/Noviembre/2018
+            <br><br>
+            Tu Tan Bonita de 15 Años 💖
+            </div><span>12/Junio/2018 <br> 15 Años 👑</span>
+    </a>
+
+    <a href="anio16.html" class="year-card"><img src="anio16.jpg">
+        <div class="reveal-text">Ay No Ya Son 16 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            27/Enero/2020
+            <br><br>
+            Tu Tan Bella de 16 Años 💖
+        </div><span>12/Junio/2019 <br> 16 Años 👑</span>
+    </a>
+
+    <a href="anio17.html" class="year-card"><img src="anio17.jpg">
+        <div class="reveal-text">Ay No Ya Son 17 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            28/Octubre/2020
+            <br><br>
+            Tu De 17 El Dia Que Cumpli 20 💖
+        </div><span>12/Junio/2020 <br> 17 Años 👑</span>
+    </a>
+
+    <a href="anio18.html" class="year-card"><img src="anio18.jpg">
+        <div class="reveal-text">Ay No Ya Eres Legal 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            13/Septiembre/2021
+            <br><br>
+            El Dia Que Nos Conocimos En Persona 💖
+        </div><span>12/Junio/2021 <br> 18 Años 👑</span>
+    </a>
+
+    <a href="anio19.html" class="year-card"><img src="anio19.jpg">
+        <div class="reveal-text">Ay No Ya Son 19 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            12/Junio/2022
+            <br><br>
+            El Dia Que Cumpliste 19 💖
+        </div><span>12/Junio/2022 <br> 19 Años 👑</span>
+    </a>
+
+    <a href="anio20.html" class="year-card"><img src="anio20.jpg">
+        <div class="reveal-text">Ay No Ya Son 20 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            16/Noviembre/2023
+            <br><br>
+            Tu Tan Preciosa de 20 Años 💖
+        </div><span>12/Junio/2023 <br> 20 Años 👑</span>
+    </a>
+
+    <a href="anio21.html" class="year-card"><img src="anio21.jpg">
+        <div class="reveal-text">Ay No Ya Son 21 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            20/Mayo/2024
+            <br><br>
+            Tu Tan Sexy de 21 Años💖
+        </div><span>12/Junio/2024 <br> 21 Años 👑</span>
+    </a>
+
+    <a href="anio22.html" class="year-card"><img src="anio22.jpg">
+        <div class="reveal-text">Ay No Ya Son 22 Años 💖
+            <br><br>
+            Recuerdo Bonito:
+            <br><br>
+            19/Abril/2025
+            <br><br>
+            Tu Tan Rica de 22 Años 💖
+        </div><span>12/Junio/2025 <br> 22 Años 👑</span>
+    </a>
+    </div>
+
+
+    <!-- Música de fondo -->
+    <audio id="musicaFondo" loop>
+        <source id="fuenteMusica" src="" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio> 
+
+    <script>
+        const canciones = [
+            { src: "Dejame Tocarte.mp3", nombre: "🎶 Dejame Tocarte" },
+            { src: "Que Belleza De Mujer.mp3", nombre: "🎶 Que Belleza De Mujer" },
+            { src: "Es Un Secreto.mp3", nombre: "🎶 Es Un Secreto" },
+            { src: "Yo Quiero Ser.mp3", nombre: "🎶 Yo Quiero Ser" },
+            { src: "Esto No Es Malo.mp3", nombre: "🎶 Esto No Es Malo" },
+            { src: "Un Beso.mp3", nombre: "🎶 Un Beso" },
+            { src: "Con Cariño Para Ti.mp3", nombre: "🎶 Con Cariño Para Ti" },
+            { src: "Dame un beso.mp3", nombre: "🎶 Dame Un Beso" },
+            { src: "Desde Que Te Conoci.mp3", nombre: "🎶 Desde Que Te Conoci" },
+            { src: "MONALISA.mp3", nombre: "🎶 Monalisa" },
+            { src: "Mia.mp3", nombre: "🎶 Mia" }
+            
+        ];
+
+        const cancionAleatoria = canciones[Math.floor(Math.random() * canciones.length)];
+        const fuente = document.getElementById('fuenteMusica');
+        const reproductor = document.getElementById('musicaFondo');
+        const nombreCancion = document.getElementById('nombreCancion');
+
+        fuente.src = cancionAleatoria.src;
+        reproductor.load();
+        nombreCancion.textContent = cancionAleatoria.nombre;
+
+        // Función para pausar o reanudar
+        function togglePlayPause() {
+            const icono = document.getElementById('iconoPlayPause');
+
+            if (reproductor.paused) {
+                reproductor.play();
+                icono.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>'; // Play
+            } else {
+                reproductor.pause();
+                icono.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Pause
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
