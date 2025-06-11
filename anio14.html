@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carta 14 - Mi corazón habla por ti</title>
+
+  <!-- Fuentes nuevas -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=PT+Serif&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'PT Serif', serif;
+      overflow-x: hidden;
+      padding: 1rem;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('fondo14.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    .sticker-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdqZTV0dm94dWJyNjlmNHJtOWx5emFrZThzcTlod3RnYmYxc2FuMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/8tcHYjjmILUymgzKXN/giphy.gif');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 1;
+    }
+
+    h1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #5e35b1;
+      text-align: center;
+      margin: 0;
+      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.7);
+      text-shadow: 0 0 12px #7e57c2;
+      z-index: 1000;
+      animation: fadeGlow 5s ease-in-out infinite alternate;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    @keyframes fadeGlow {
+      0% {
+        text-shadow: 0 0 8px #9575cd;
+        color: #5e35b1;
+        transform: scale(1);
+      }
+      50% {
+        text-shadow: 0 0 25px #b39ddb;
+        color: #7e57c2;
+        transform: scale(1.05);
+      }
+      100% {
+        text-shadow: 0 0 8px #9575cd;
+        color: #5e35b1;
+        transform: scale(1);
+      }
+    }
+
+    .carta {
+      max-width: 900px;
+      margin: 10rem auto 3rem;
+      background: rgba(255, 255, 250, 0.7);
+      border-radius: 2rem;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 6px 25px rgba(94, 53, 177, 0.5);
+      font-size: 1.35rem;
+      color: #4a2e56;
+      font-family: 'PT Serif', serif;
+      font-style: italic;
+      line-height: 1.9;
+      animation: slideFadeUp 1.8s ease forwards;
+    }
+
+    @keyframes slideFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.98);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .carta h2 {
+      text-align: center;
+      color: #512da8;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      text-shadow: 1px 1px 5px #b39ddb;
+      font-style: normal;
+      letter-spacing: 1.5px;
+    }
+
+    .volver {
+      display: block;
+      max-width: 180px;
+      margin: 2.5rem auto 0;
+      padding: 0.8rem 1.6rem;
+      background-color: #673ab7;
+      color: white;
+      border: none;
+      border-radius: 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(103, 58, 183, 0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    .volver:hover {
+      background-color: #512da8;
+    }
+
+    .floating-text,
+    .heart {
+      position: absolute;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #7e57c2;
+      opacity: 0.7;
+      animation: floatTextDown linear forwards;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+
+    .heart {
+      font-size: 1.7rem;
+      color: #9575cd;
+    }
+
+    @keyframes floatTextDown {
+      from {
+        transform: translateY(-10vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(120vh);
+        opacity: 0.4;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sticker-bg"></div>
+
+  <h1>💖 Mi corazón habla por ti 💖
+    <span style="font-size: 1.5rem; display: block; margin-top: 0.3rem;">
+      🎶 Dibujame
+      <button id="playPauseBtn" onclick="togglePlayPause()"
+        style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; border: none; border-radius: 0.5rem; background-color: #a56f3c; color: white; cursor: pointer;">
+        <svg id="iconoPlayPause" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
+          viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" /> <!-- Play icon -->
+        </svg>
+      </button>
+    </span>
+  </h1>
+
+  <div class="carta">
+    <h2>🌸 Sentimientos que no puedo callar 🌸</h2>
+    <p>
+      Cuando pienso en ti, el mundo se vuelve un lugar más dulce y lleno de esperanza. Siento cómo mi alma se despierta
+      con cada pensamiento que te dedica, y cómo mi corazón late con una fuerza que nunca antes había conocido.
+    </p>
+    <p>
+      No se trata solo de cariño, sino de una conexión profunda que me envuelve y me hace querer ser mejor cada día.
+      Contigo, el tiempo se detiene y al mismo tiempo vuela, porque cada instante a tu lado es un regalo que atesoro sin medida.
+    </p>
+    <p>
+      Me conmueven tus silencios, tus risas espontáneas, esa forma única que tienes de mirar el mundo con ojos llenos
+      de ternura y valentía. Me inspiras a soñar más alto, a amar sin condiciones y a entregarme sin reservas.
+    </p>
+    <p>
+      A veces no encuentro palabras para describir lo que siento, pero sé que es real, intenso y eterno. Un amor que
+      no pide nada, solo ser vivido y compartido contigo en cada latido, en cada suspiro.
+    </p>
+    <p>
+      Gracias por existir, por ser luz en mis días nublados y por hacer que mi corazón se sienta en casa cada vez que
+      pienso en ti. Eres mi inspiración, mi calma, mi tormenta dulce y mi más hermosa aventura.
+    </p>
+  </div>
+
+  <a href="index.html" class="volver">← Volver al Inicio</a>
+
+  <!-- Frases y corazones flotantes -->
+  <script>
+    const frases = [
+      "Eres mi fuerza 💜",
+      "Contigo soy libre 🌙",
+      "Mi alegría diaria ✨",
+      "Eres mi refugio 💕",
+      "Cada día te admiro más 💖",
+      "Tu sonrisa me ilumina 🌟"
+    ];
+
+    function createFloatingElement(text, className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerText = text;
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = '-10vh';
+      const duration = 10 + Math.random() * 15;
+      el.style.animationDuration = duration + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), duration * 1000);
+    }
+
+    setInterval(() => {
+      const textoRandom = frases[Math.floor(Math.random() * frases.length)];
+      createFloatingElement(textoRandom, 'floating-text');
+      createFloatingElement('💗', 'heart');
+      createFloatingElement('💞', 'heart');
+    }, 1800);
+  </script>
+
+  <!-- Música de fondo -->
+    <audio id="reproductor" loop>
+        <source src="Dibújame.mp3" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const reproductor = document.getElementById("reproductor");
+
+        function togglePlayPause() {
+            const icono = document.getElementById('iconoPlayPause');
+
+            if (reproductor.paused) {
+                reproductor.play();
+                icono.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>'; // Play
+            } else {
+                reproductor.pause();
+                icono.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Pause
+            }
+        }
+    </script>
+
+</body>
+
+</html>

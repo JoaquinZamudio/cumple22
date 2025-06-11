@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carta 17 - Apoyo incondicional</title>
+
+  <!-- Nuevas fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      padding: 1rem;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('fondo17.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    .sticker-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdqZTV0dm94dWJyNjlmNHJtOWx5emFrZThzcTlod3RnYmYxc2FuMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/8tcHYjjmILUymgzKXN/giphy.gif');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 1;
+    }
+
+    h1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-family: 'Comfortaa', cursive;
+      font-size: 3.8rem;
+      color: #0d47a1;
+      text-align: center;
+      margin: 0;
+      padding: 1.3rem 0;
+      background: rgba(255, 255, 255, 0.7);
+      text-shadow: 0 0 12px #82b1ff;
+      z-index: 1000;
+      animation: pulseGlow 3.5s ease-in-out infinite alternate;
+      letter-spacing: 3px;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        text-shadow: 0 0 10px #64b5f6, 0 0 25px #1e88e5;
+        color: #1565c0;
+        transform: scale(1);
+      }
+
+      50% {
+        text-shadow: 0 0 25px #42a5f5, 0 0 40px #0d47a1;
+        color: #2196f3;
+        transform: scale(1.05);
+      }
+
+      100% {
+        text-shadow: 0 0 10px #64b5f6, 0 0 25px #1e88e5;
+        color: #1565c0;
+        transform: scale(1);
+      }
+    }
+
+    .carta {
+      max-width: 900px;
+      margin: 10rem auto 3rem;
+      background: rgba(255, 255, 250, 0.7);
+      border-radius: 2rem;
+      padding: 3rem 3rem;
+      box-shadow: 0 5px 20px rgba(13, 71, 161, 0.4);
+      font-size: 1.3rem;
+      color: #0d336b;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.85;
+      animation: fadeUp 2s ease forwards;
+      position: relative;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .carta h2 {
+      text-align: center;
+      color: #0d47a1;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      letter-spacing: 1.5px;
+      text-shadow: 1px 1px 8px #90caf9;
+    }
+
+    .volver {
+      display: block;
+      max-width: 210px;
+      margin: 2.5rem auto 0;
+      padding: 0.85rem 1.8rem;
+      background-color: #1565c0;
+      color: white;
+      border: none;
+      border-radius: 1.3rem;
+      font-size: 1.05rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(21, 101, 192, 0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    .volver:hover {
+      background-color: #0d47a1;
+    }
+
+    .floating-text,
+    .heart {
+      position: absolute;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1565c0;
+      opacity: 0.75;
+      animation: floatTextDown linear forwards;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+      user-select: none;
+    }
+
+    .heart {
+      font-size: 1.8rem;
+      color: #64b5f6;
+    }
+
+    @keyframes floatTextDown {
+      from {
+        transform: translateY(-15vh);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(130vh);
+        opacity: 0.3;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sticker-bg"></div>
+
+  <h1>💙 Apoyo para tus sueños 💙
+    <span style="font-size: 1.5rem; display: block; margin-top: 0.3rem;">
+      🎶 Una Lady Como Tu
+      <button id="playPauseBtn" onclick="togglePlayPause()"
+        style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; border: none; border-radius: 0.5rem; background-color: #a56f3c; color: white; cursor: pointer;">
+        <svg id="iconoPlayPause" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
+          viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" /> <!-- Play icon -->
+        </svg>
+      </button>
+    </span>
+  </h1>
+
+  <div class="carta">
+    <h2>🚀 Juntos hacia tus metas 🚀</h2>
+    <p>
+      En cada paso que des, quiero que sepas que no estás sola. Estoy aquí, apoyándote, animándote y creyendo en ti
+      con toda la fuerza de mi corazón. No hay meta demasiado grande ni sueño imposible cuando tienes a alguien que te
+      impulsa y te sostiene.
+    </p>
+    <p>
+      Quiero ser el refugio donde puedas descansar cuando el camino se ponga difícil y la fuerza que te levante cuando
+      dudes. Porque tu felicidad y tus logros son también mi alegría más profunda.
+    </p>
+    <p>
+      Permíteme caminar a tu lado, celebrar tus victorias y aprender contigo de los retos. Creo en ti y en todo lo que
+      eres capaz de lograr, y siempre estaré aquí, apoyándote para que cumplas todos tus deseos y alcances cada meta
+      que te propongas.
+    </p>
+    <p>
+      Porque mereces lo mejor y más, y nada me haría más feliz que verte brillar con toda la luz que llevas dentro.
+    </p>
+  </div>
+
+  <a href="index.html" class="volver">← Volver al Inicio</a>
+
+  <!-- Frases y corazones flotantes -->
+  <script>
+    const frases = [
+      "Creo en ti 🌟",
+      "Aquí a tu lado 💪",
+      "Nunca estás sola 🤗",
+      "Tus sueños, mis sueños ✨",
+      "Juntos siempre 💙",
+      "A por todas 🚀"
+    ];
+
+    function createFloatingElement(text, className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerText = text;
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = '-10vh';
+      const duration = 11 + Math.random() * 13;
+      el.style.animationDuration = duration + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), duration * 1000);
+    }
+
+    setInterval(() => {
+      const textoRandom = frases[Math.floor(Math.random() * frases.length)];
+      createFloatingElement(textoRandom, 'floating-text');
+      createFloatingElement('💙', 'heart');
+      createFloatingElement('✨', 'heart');
+    }, 1700);
+  </script>
+
+  <!-- Música de fondo -->
+    <audio id="reproductor" loop>
+        <source src="Una Lady Como Tú.mp3" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const reproductor = document.getElementById("reproductor");
+
+        function togglePlayPause() {
+            const icono = document.getElementById('iconoPlayPause');
+
+            if (reproductor.paused) {
+                reproductor.play();
+                icono.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>'; // Play
+            } else {
+                reproductor.pause();
+                icono.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Pause
+            }
+        }
+    </script>
+
+</body>
+
+</html>
