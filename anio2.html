@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Año 2 - Mi Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            padding: 1rem;
+            position: relative;
+            z-index: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+                url('fondo2.jpeg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .sticker-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdqZTV0dm94dWJyNjlmNHJtOWx5emFrZThzcTlod3RnYmYxc2FuMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/8tcHYjjmILUymgzKXN/giphy.gif');
+            background-repeat: repeat;
+            background-position: center;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 200;
+            opacity: 1;
+        }
+
+        h1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 2.6rem;
+            text-align: center;
+            margin: 0;
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1000;
+            font-family: 'Pacifico', cursive;
+            color: #d81b60;
+            letter-spacing: 1px;
+        }
+
+        h1 span {
+            display: inline-block;
+            animation: wave 1.8s ease-in-out infinite;
+        }
+
+        h1 span:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        h1 span:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .carta {
+            max-width: 800px;
+            margin: 10rem auto 0;
+            background: rgba(255, 240, 250, 0.5);
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(255, 192, 203, 0.6);
+            z-index: 10;
+            position: relative;
+            animation: fadeInUp 1s ease forwards, softGlow 6s ease-in-out infinite;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            font-family: 'Pacifico', cursive, 'Segoe UI', sans-serif;
+            font-size: 1.4rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes softGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(255, 192, 203, 0.6);
+            }
+
+            50% {
+                box-shadow: 0 6px 30px rgba(255, 105, 180, 0.8);
+            }
+        }
+
+        .carta:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 40px rgba(255, 105, 180, 0.9);
+        }
+
+        .carta h2 {
+            text-align: center;
+            color: #e91e63;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .carta p {
+            line-height: 1.8;
+            color: #4a0033;
+            text-align: justify;
+        }
+
+        .volver {
+            display: block;
+            margin: 2rem auto 0;
+            padding: 0.8rem 1.6rem;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 1.2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .volver:hover {
+            background-color: #c2185b;
+        }
+
+        .floating-text,
+        .heart {
+            position: absolute;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff4081;
+            opacity: 0.7;
+            animation: floatTextDown linear forwards;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .heart {
+            font-size: 1.5rem;
+            color: #e91e63;
+        }
+
+        @keyframes floatTextDown {
+            from {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(120vh);
+                opacity: 0.5;
+            }
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sticker-bg"></div>
+
+    <h1>
+        <span>✨</span>
+        <span> </span>
+        <span>M</span><span>i</span>
+        <span> </span>
+        <span>T</span><span>e</span><span>s</span><span>o</span><span>r</span><span>o</span>
+        <span> </span>
+        <span>A</span><span>l</span>
+        <span> </span>
+        <span>C</span><span>u</span><span>m</span><span>p</span><span>l</span><span>i</span><span>r</span>
+        <span> </span>
+        <span>2</span> <span>A</span><span>ñ</span><span>o</span><span>s</span>
+        <span>✨</span>
+
+        <span style="font-size: 1.5rem; display: block; margin-top: 0.3rem;">
+            🎶 Brillas
+            <button id="playPauseBtn" onclick="togglePlayPause()"
+                style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; border: none; border-radius: 0.5rem; background-color: #a56f3c; color: white; cursor: pointer;">
+                <svg id="iconoPlayPause" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
+                    viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" /> <!-- Play icon -->
+                </svg>
+            </button>
+        </span>
+    </h1>
+
+    <div class="carta">
+        <h2>🎈 Año 2: ¡Ya Eres Toda una Exploradora! 🧸</h2>
+        <p>💕 En tu segundo año, comenzaste a correr, a hablar con dulzura y a sorprender al mundo con cada nueva
+            palabra. Tu risa se volvió contagiosa, tus abrazos más fuertes, y tu mirada más brillante que nunca. 🌟</p>
+        <p>🧡 Cada día traías una nueva ocurrencia, una travesura inocente, una carcajada inesperada. Ver cómo descubres
+            tu mundo, cómo haces preguntas y cómo disfrutas lo simple, me llena el alma. ✨</p>
+        <p>🌷 En este año aprendiste a decir "te amo" con gestos, con besitos, con esas pequeñas manitas que lo abrazan
+            todo con fuerza. Tu ternura es un regalo constante. 🎁</p>
+        <p>🌼 Ver cómo te convertías en una niña más curiosa, más valiente, más dulce... es una bendición que no puedo
+            describir del todo. Eres mágica, única, luz pura. 🌞</p>
+        <p>🎉 Hoy celebro tu segundo año de vida, y aunque aún no nos conocíamos, el mundo ya era mucho más bonito solo
+            porque tú estabas en él. 💖</p>
+        <p>🌸 ¡Feliz segundo añito, mi niña hermosa! 🌈</p>
+
+        <a class="volver" href="index.html">← Volver al Inicio</a>
+    </div>
+
+    <!-- Frases flotantes -->
+    <script>
+        const frases = ["Te Amo 💘", "Mi Vida 💕", "Feliz Segundo Año 🎉", "Eres Luz ✨", "Mi Tesoro 🌹"];
+
+        function createFloatingElement(text, className) {
+            const el = document.createElement('div');
+            el.className = className;
+            el.innerText = text;
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '-10vh';
+            const duration = 10 + Math.random() * 15;
+            el.style.animationDuration = duration + 's';
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), duration * 1000);
+        }
+
+        setInterval(() => {
+            const textoRandom = frases[Math.floor(Math.random() * frases.length)];
+            createFloatingElement(textoRandom, 'floating-text');
+            createFloatingElement('❤️', 'heart');
+            createFloatingElement('💖', 'heart');
+        }, 1200);
+    </script>
+
+    <!-- Música de fondo -->
+        <audio id="reproductor" loop>
+        <source src="Brillas.mp3" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const reproductor = document.getElementById("reproductor");
+
+        function togglePlayPause() {
+            const icono = document.getElementById('iconoPlayPause');
+
+            if (reproductor.paused) {
+                reproductor.play();
+                icono.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>'; // Play
+            } else {
+                reproductor.pause();
+                icono.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Pause
+            }
+        }
+    </script>
+
+</body>
+
+</html>

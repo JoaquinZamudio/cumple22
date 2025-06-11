@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Año 6 - Mi Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Lora&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      overflow-x: hidden;
+      padding: 1rem;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('fondo6.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    .sticker-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdqZTV0dm94dWJyNjlmNHJtOWx5emFrZThzcTlod3RnYmYxc2FuMiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/8tcHYjjmILUymgzKXN/giphy.gif');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 1;
+    }
+
+    h1 {
+      font-family: 'Press Start 2P', cursive;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-size: 1.2rem;
+      color: #2e7d32;
+      text-align: center;
+      margin: 0;
+      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.7);
+      text-shadow: 2px 2px 5px #fff;
+      z-index: 1000;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #2e7d32;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .carta {
+      max-width: 800px;
+      margin: 10rem auto 0;
+      background: rgba(255, 255, 250, 0.6);
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(255, 192, 203, 0.6);
+      position: relative;
+      z-index: 10;
+      animation: fadeInUp 1s ease forwards, softGlow 6s ease-in-out infinite;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      font-size: 1.3rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes softGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(255, 192, 203, 0.6);
+      }
+
+      50% {
+        box-shadow: 0 6px 30px rgba(255, 105, 180, 0.8);
+      }
+    }
+
+    .carta:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 40px rgba(255, 105, 180, 0.9);
+    }
+
+    .carta h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .carta p {
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+    }
+
+    .volver {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.8rem 1.6rem;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .volver:hover {
+      background-color: #1b5e20;
+    }
+
+    .floating-text,
+    .heart {
+      position: absolute;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #4caf50;
+      opacity: 0.7;
+      animation: floatTextDown linear forwards;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+
+    .heart {
+      font-size: 1.5rem;
+      color: #81c784;
+    }
+
+    @keyframes floatTextDown {
+      from {
+        transform: translateY(-10vh);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(120vh);
+        opacity: 0.5;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sticker-bg"></div>
+
+  <h1>🎮 Año 6: Una Aventurita Más 🌿
+    <span style="font-size: 1.5rem; display: block; margin-top: 0.3rem;">
+      🎶 Que Bonito Es Querer
+      <button id="playPauseBtn" onclick="togglePlayPause()"
+        style="margin-left: 0.5rem; padding: 0.2rem 0.5rem; border: none; border-radius: 0.5rem; background-color: #a56f3c; color: white; cursor: pointer;">
+        <svg id="iconoPlayPause" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white"
+          viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" /> <!-- Play icon -->
+        </svg>
+      </button>
+    </span>
+  </h1>
+
+  <div class="carta">
+    <h2>💚 Año 6 💚</h2>
+    <p>🌱 En tu sexto año, tu imaginación florecía con cada juego, cada historia inventada y cada aventura que vivías.
+      Empezabas a crear tu propio mundo, lleno de magia y creatividad. 🧚‍♀️</p>
+    <p>🎨 Dibujabas sueños, construías castillos, y tus palabras comenzaban a contar historias que salían directo de tu
+      corazón. Tu risa se volvía aún más contagiosa, y tu esencia más fuerte y brillante. ✨</p>
+    <p>🧠 Era el año en que aprendías rápido, preguntabas todo, y querías descubrirlo todo. Tenías ya tu forma especial
+      de pensar, tan auténtica y maravillosa. 🌟</p>
+    <p>🏃‍♀️ Corrías con energía infinita, como si el mundo entero fuera tu patio de juegos. Nada te detenía, y todo te
+      sorprendía. Y cada paso, cada palabra, cada gesto, me enamoraría si hubiera tenido la dicha de verte entonces. 💫
+    </p>
+    <p>💞 Gracias por haber sido esa niña curiosa, brillante, valiente y amorosa. Porque todo eso que fuiste, te
+      convirtió en la persona que soy tan feliz de tener hoy. 💖</p>
+
+    <a class="volver" href="index.html">← Volver al Inicio</a>
+  </div>
+
+  <script>
+    const frases = ["Te Amo 💘", "Mi Vida 💕", "Feliz Año 6 🎉", "Siempre Contigo 🌿", "Mi Aventura Favorita 💚"];
+
+    function createFloatingElement(text, className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerText = text;
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = '-10vh';
+      const duration = 10 + Math.random() * 15;
+      el.style.animationDuration = duration + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), duration * 1000);
+    }
+
+    setInterval(() => {
+      const textoRandom = frases[Math.floor(Math.random() * frases.length)];
+      createFloatingElement(textoRandom, 'floating-text');
+      createFloatingElement('💚', 'heart');
+      createFloatingElement('🌿', 'heart');
+    }, 1200);
+  </script>
+
+    <audio id="reproductor" loop>
+        <source src="Que Bonito Es Querer.mp3" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const reproductor = document.getElementById("reproductor");
+
+        function togglePlayPause() {
+            const icono = document.getElementById('iconoPlayPause');
+
+            if (reproductor.paused) {
+                reproductor.play();
+                icono.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>'; // Play
+            } else {
+                reproductor.pause();
+                icono.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Pause
+            }
+        }
+    </script>
+
+</body>
+
+</html>
